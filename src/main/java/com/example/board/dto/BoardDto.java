@@ -8,6 +8,11 @@ public class BoardDto {
 	private String content;
 	private String name;
 	private Date regdate;
+	@Override
+	public String toString() {
+		return "BoardDto [num=" + num + ", title=" + title + ", content=" + content + ", name=" + name + ", regdate="
+				+ regdate + "]";
+	}
 	public int getNum() {
 		return num;
 	}
