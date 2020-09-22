@@ -58,4 +58,15 @@
 	WHERE
 		num=#{num}
 </delete>
+
+<select id="searchData" parameterType="String">
+	SELECT
+		<include refid="boardColumns"/>
+	FROM
+		BOARD
+	WHERE
+		title = #{title}
+	OR
+		content = #{content}
+</select>
 </mapper>

@@ -17,4 +17,6 @@ public interface BoardMapper {
 	public int updateData(BoardDto dto);
 	
 	public int deleteData(int num);
+	
+	public List<BoardDto> searchData(String str);
 }
