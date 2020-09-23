@@ -17,4 +17,10 @@ public class LoginController {
 		System.out.println(boardMapper.selectAll().toString());
 		return "login";
 	}
+	
+	@RequestMapping("/signUp")
+	public String signUp() {
+		System.out.println(boardMapper.selectAll().toString());
+		return "signUp";
+	}
 }
