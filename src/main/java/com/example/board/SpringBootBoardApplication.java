@@ -1,5 +1,6 @@
 package com.example.board;
 
+<<<<<<< HEAD
 import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -27,3 +28,16 @@ public class SpringBootBoardApplication {
         return sessionFactory.getObject();
     }
 }
+=======
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootBoardApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootBoardApplication.class, args);
+	}
+
+}
+>>>>>>> refs/remotes/origin/master

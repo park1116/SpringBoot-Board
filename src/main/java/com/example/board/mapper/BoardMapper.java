@@ -2,11 +2,19 @@ package com.example.board.mapper;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import org.springframework.stereotype.Repository;
 
 import com.example.board.dto.BoardDto;
 
 @Repository("com.example.board.mapper.BoardMapper")
+=======
+import org.apache.ibatis.annotations.Mapper;
+
+import com.example.board.dto.BoardDto;
+
+@Mapper
+>>>>>>> refs/remotes/origin/master
 public interface BoardMapper {
 	public List<BoardDto> selectAll();
 	
