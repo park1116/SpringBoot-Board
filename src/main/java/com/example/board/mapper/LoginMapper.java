@@ -9,4 +9,6 @@ public interface LoginMapper {
 	public String loginCheck(LoginDto dto);
 	
 	public int idCheck(String id);
+
+	public int insertData(LoginDto dto);
 }

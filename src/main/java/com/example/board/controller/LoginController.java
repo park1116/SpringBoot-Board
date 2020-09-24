@@ -15,7 +15,7 @@ import com.example.board.service.LoginService;
 @Controller
 public class LoginController {
 	@Resource(name="com.example.board.service.LoginService")
-    LoginService loginService;
+    LoginService service;
 	
 	@RequestMapping("/")
 	public ModelAndView login() {
@@ -32,7 +32,7 @@ public class LoginController {
 		LoginDto dto = new LoginDto();
 		dto.setId(id);
 		dto.setPassword(password);
-		String loginId = loginService.loginCheck(dto);
+		String loginId = service.loginCheck(dto);
 		if(loginId==null || "".equals(loginId))
 			return false;
 		else {
@@ -46,5 +46,28 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("signUp");
 		return mav;
+	}
+	
+	@RequestMapping("/idCheck")
+	@ResponseBody
+	public Boolean idCheck(HttpServletRequest request) {
+		String id = request.getParameter("userId");
+		int check = service.idCheck(id);
+		if(check == 0)
+			return true;
+		else{
+			return false;
+		}
+	}
+	
+	@RequestMapping("/insertData")
+	@ResponseBody
+	public void insertData(HttpServletRequest request) {
+		String id = request.getParameter("userId");
+		String password = request.getParameter("password");
+		LoginDto dto = new LoginDto();
+		dto.setId(id);
+		dto.setPassword(password);
+		service.insertData(dto);
 	}
 }

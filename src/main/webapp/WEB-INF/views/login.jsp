@@ -52,12 +52,5 @@ function login(userId,password){
 		}
 	})
 }
-
-function enterKeyCheck(){
-	if(event.keyCode == 13)
-	{	
-		loginValidation();
-	}
-}
 </script>
 </html>

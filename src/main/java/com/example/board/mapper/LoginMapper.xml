@@ -21,4 +21,13 @@
 	WHERE
 		id=#{id}
 </select>
+
+<insert id="insertData" parameterType="com.example.board.dto.LoginDto">
+	INSERT INTO
+		LOGIN
+	VALUES(
+		#{id},
+		#{password}
+	)
+</insert>
 </mapper>
