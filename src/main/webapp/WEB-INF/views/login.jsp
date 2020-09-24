@@ -10,9 +10,9 @@
 <body>
 <h1 align="center">로그인</h1>
 <div align="center">
-	<form id="signupForm">
-		<input type="text" id="userId" placeholder="ID" autofocus onkeyup="enterKeyCheck()" style="margin: 0.5%; padding:0.5%;"><br>
-		<input type="password" id="password"  placeholder="Password" onkeyup="enterKeyCheck()" style="margin: 0.5%; padding:0.5%;"><br>
+	<form id="loginForm">
+		<input type="text" id="userId" placeholder="ID" style="margin: 0.5%; padding:0.5%;"><br>
+		<input type="password" id="password"  placeholder="Password" style="margin: 0.5%; padding:0.5%;"><br>
 		<input type="button" value="회원가입" onclick="location.href='/signUp'">
 		<input type="button" value="로그인" onclick="loginValidation()">
 	</form>
@@ -43,11 +43,11 @@ function login(userId,password){
 				password : password	
 		},
 		success:function(data){
-			if(data == 2){
+			if(!data){
 				alert("아이디 혹은 비밀번호가 맞지 않습니다.");
 				return false;
-			}else if(data == 3){
-				location.href="/view/dashboard";
+			}else{
+				location.href="/boardMain";
 			}
 		}
 	})

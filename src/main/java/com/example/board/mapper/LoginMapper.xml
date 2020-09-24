@@ -3,7 +3,7 @@
 <mapper namespace="com.example.board.mapper.LoginMapper">
 
 <select id="loginCheck" parameterType="com.example.board.dto.LoginDto" resultType="String">
-	SELCET
+	SELECT
 		id
 	FROM
 		LOGIN

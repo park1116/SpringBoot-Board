@@ -1,10 +1,10 @@
 package com.example.board.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 import com.example.board.dto.LoginDto;
 
-@Mapper
+@Repository("com.example.board.mapper.LoginMapper")
 public interface LoginMapper {
 	public String loginCheck(LoginDto dto);
 	
