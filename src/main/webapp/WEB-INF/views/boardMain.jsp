@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,9 +9,9 @@
 <title>BOARD</title>
 </head>
 <body>
+	<%String id = (String)session.getAttribute("loginId");%>
+	<h2 align="right" onclick="logout()"><%=id %></h2>
 	<h1 align="center">글 목록</h1>
-	<%String id = (String)session.getAttribute("loginId");            // request에서 id 파라미터를 가져온다%>
-	<h2><%=id %></h2>
 	<div align="right">
 		<form action="/search" method="get">
 			<input type="text" name="searchData" placeholder="검색어를 입력하세요." />
@@ -36,7 +37,7 @@
 		</c:forEach>
 	</table>
 	<div align="left">
-		<button onclick="location='create'">글 쓰기</button>
+		<button onclick="location.href='/create'">글 쓰기</button>
 	</div>
 </body>
 </html>
