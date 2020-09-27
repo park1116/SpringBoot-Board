@@ -44,4 +44,13 @@ public class BoardController {
 		dto.setName(name);
 		service.insertData(dto);		
 	}
+	
+	@RequestMapping("/search")
+	public ModelAndView search(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		String str = request.getParameter("searchData");
+		mav.setViewName("boardMain");
+		mav.addObject("list", service.searchData(str));
+		return mav;
+	}
 }

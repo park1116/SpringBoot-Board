@@ -62,14 +62,16 @@
 		num=#{num}
 </delete>
 
-<select id="searchData" parameterType="String">
+<select id="searchData" parameterType="String" resultType="com.example.board.dto.BoardDto">
 	SELECT
 		<include refid="boardColumns"/>
 	FROM
 		BOARD
 	WHERE
-		title = #{title}
+		title like CONCAT('%',#{str},'%')
 	OR
-		content = #{content}
+		content like CONCAT('%',#{str},'%')
+	ORDER BY
+		num desc
 </select>
 </mapper>
