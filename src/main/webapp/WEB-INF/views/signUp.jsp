@@ -20,6 +20,7 @@
 			<label for="passwordCheck">비밀번호 확인</label>
 			<input type="password" id="passwordCheck"  placeholder="Password Check" style="margin: 0.5%; padding:0.5%;"><br>
 			<input type="button" value="가입완료" onclick="insertData()" style="padding:0.5%;">
+			<input type="button" value="취소" onclick="location.href='/'" style="padding:0.5%;">
 		</form>
 	</div>
 </body>

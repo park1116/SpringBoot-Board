@@ -13,8 +13,8 @@
 	<form id="loginForm">
 		<input type="text" id="userId" placeholder="ID" style="margin: 0.5%; padding:0.5%;"><br>
 		<input type="password" id="password"  placeholder="Password" style="margin: 0.5%; padding:0.5%;"><br>
-		<input type="button" value="회원가입" onclick="location.href='/signUp'">
-		<input type="button" value="로그인" onclick="loginValidation()">
+		<input type="button" value="회원가입" onclick="location.href='/signUp'" style="padding:0.5%;">
+		<input type="button" value="로그인" onclick="loginValidation()" style="padding:0.5%;">
 	</form>
 </div>
 </body>

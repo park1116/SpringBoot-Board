@@ -37,7 +37,7 @@
 		</c:forEach>
 	</table>
 	<div align="left">
-		<button onclick="location.href='/create'">글 쓰기</button>
+		<button onclick="location.href='/create'" style="padding:0.5%;">글 쓰기</button>
 	</div>
 </body>
 </html>
