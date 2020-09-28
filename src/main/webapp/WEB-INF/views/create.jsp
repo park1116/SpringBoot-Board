@@ -17,13 +17,14 @@
 				<tr>
 					<td>제목</td>
 					<td>
-						<input type="text" id="title" placeholder="제목을 입력하세요." style="margin: 0.5%; padding:0.5%; height: 30px; width: 500px;">
+						<input type="text" id="title" size = "50" maxlength = "50" placeholder="제목을 입력하세요." style="margin: 0.5%; padding:0.5%;">
 					</td>
 				</tr>
 				<tr>
 					<td>내용</td>
 					<td>
-						<input type="text" id="content" placeholder="내용을 입력하세요." style="margin: 0.5%; padding:0.5%; height: 300px; width: 500px;">
+						<textarea rows="13" cols="50" id="content" placeholder="내용을 입력하세요." style="margin: 0.5%; padding:0.5%; resize: none;"></textarea>
+<!-- 						<input type="text" id="content" placeholder="내용을 입력하세요." style="margin: 0.5%; padding:0.5%; height: 300px; width: 500px;"> -->
 					</td>
 				</tr>
 			</table>

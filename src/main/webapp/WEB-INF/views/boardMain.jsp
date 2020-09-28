@@ -29,8 +29,8 @@
 		<c:forEach var="dto" items="${list}" varStatus="status">
 			<tr>
 				<td align="center" width="10%">${dto.num}</td>
-				<td align="center" width="20%"><a style="cursor: pointer;" onclick="read('${dto.title}')">${dto.title}</a></td>
-				<td align="center" width="*%"><a style="cursor: pointer;" onclick="read('${dto.title}')">${dto.content}</a></td>
+				<td align="center" width="20%"><a style="cursor: pointer;" onclick="location.href='/read?num='+${dto.num}">${dto.title}</a></td>
+				<td align="center" width="*%"><a style="cursor: pointer;" onclick="location.href='/read?num='+${dto.num}">${dto.content}</a></td>
 				<td align="center" width="10%">${dto.name}</td>
 				<td align="center" width="10%">${dto.regdate}</td>
 			</tr>

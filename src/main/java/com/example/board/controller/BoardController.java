@@ -53,4 +53,13 @@ public class BoardController {
 		mav.addObject("list", service.searchData(str));
 		return mav;
 	}
+	
+	@RequestMapping("/read")
+	public ModelAndView read(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		int num = Integer.parseInt(request.getParameter("num"));
+		mav.setViewName("read");
+		mav.addObject("dto", service.selectOne(num));
+		return mav;
+	}
 }
