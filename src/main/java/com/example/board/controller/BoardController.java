@@ -62,4 +62,13 @@ public class BoardController {
 		mav.addObject("dto", service.selectOne(num));
 		return mav;
 	}
+
+	@RequestMapping("/update")
+	public ModelAndView update(HttpServletRequest request) {
+		ModelAndView mav = new ModelAndView();
+		int num = Integer.parseInt(request.getParameter("num"));
+		mav.setViewName("update");
+		mav.addObject("dto", service.selectOne(num));
+		return mav;
+	}
 }

@@ -24,7 +24,6 @@
 					<td>내용</td>
 					<td>
 						<textarea rows="13" cols="50" id="content" placeholder="내용을 입력하세요." style="margin: 0.5%; padding:0.5%; resize: none;"></textarea>
-<!-- 						<input type="text" id="content" placeholder="내용을 입력하세요." style="margin: 0.5%; padding:0.5%; height: 300px; width: 500px;"> -->
 					</td>
 				</tr>
 			</table>
