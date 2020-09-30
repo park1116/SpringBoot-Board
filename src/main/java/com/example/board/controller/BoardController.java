@@ -71,4 +71,17 @@ public class BoardController {
 		mav.addObject("dto", service.selectOne(num));
 		return mav;
 	}
+	
+	@RequestMapping("/board/update")
+	@ResponseBody
+	public void updateData(HttpServletRequest request) {
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		int num = Integer.parseInt(request.getParameter("num"));
+		BoardDto dto = new BoardDto();
+		dto.setTitle(title);
+		dto.setContent(content);
+		dto.setNum(num);
+		service.updateData(dto);		
+	}
 }
