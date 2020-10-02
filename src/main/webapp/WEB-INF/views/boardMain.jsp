@@ -24,7 +24,7 @@ table {
 </head>
 <body>
 	<%String id = (String)session.getAttribute("loginId");%>
-	<h2 align="right" onclick="logout()"><%=id %></h2>
+	<h2 align="right"><a style="cursor: pointer;" onclick="logout()"><%=id %></a></h2>
 	<h1 align="center">글 목록</h1>
 	<div align="right">
 		<form action="/search" method="get">

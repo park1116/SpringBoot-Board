@@ -24,7 +24,7 @@ table {
 </head>
 <body>
 	<%String id = (String)session.getAttribute("loginId");%>
-	<h2 align="right" onclick="logout()"><%=id %></h2>
+	<h2 align="right"><a style="cursor: pointer;" onclick="logout()"><%=id %></a></h2>
 	<h1 align="center">글 조회</h1>
 	<div align="center">
 		<table style="width: 70%">
@@ -47,9 +47,11 @@ table {
 		</table>
 	</div>
 	<div align="center" style="padding: 1%;">
-		<button type="button" onclick="location.href='/update?num='+${dto.num}" style="padding:0.5%;">수정</button>
-		<button type="button" onclick="location='/boardMain'" style="padding:0.5%;">목록으로</button>
 		<c:set var="sessionId" value="<%=id%>"/>
+		<c:if test="${dto.name eq sessionId}">
+			<button type="button" onclick="location.href='/update?num='+${dto.num}" style="padding:0.5%;">수정</button>
+		</c:if>
+		<button type="button" onclick="location='/boardMain'" style="padding:0.5%;">목록으로</button>
 		<c:if test="${dto.name eq sessionId}">
 			<button type="button" onclick="deleteData('${dto.num}')" style="padding:0.5%;">삭제</button>
 		</c:if>

@@ -9,7 +9,7 @@
 </head>
 <body>
 	<%String id = (String)session.getAttribute("loginId");%>
-	<h2 align="right" onclick="logout()"><%=id %></h2>
+	<h2 align="right"><a style="cursor: pointer;" onclick="logout()"><%=id %></a></h2>
 	<h1 align="center">글 작성</h1>
 	<div align="center">
 		<form action="/boardMain" method="post">
