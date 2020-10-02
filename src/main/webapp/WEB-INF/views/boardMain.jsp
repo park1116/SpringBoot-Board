@@ -3,6 +3,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<style type="text/css">
+table, th, td {
+	border: 1px solid black;
+}
+
+td {
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+table {
+	border-collapse: collapse;
+}
+</style>
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
 <meta charset="UTF-8">

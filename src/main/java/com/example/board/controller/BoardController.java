@@ -84,4 +84,11 @@ public class BoardController {
 		dto.setNum(num);
 		service.updateData(dto);		
 	}
+	
+	@RequestMapping("/board/delete")
+	@ResponseBody
+	public void delete(HttpServletRequest request) {
+		int num = Integer.parseInt(request.getParameter("num"));
+		service.deleteData(num);		
+	}
 }
