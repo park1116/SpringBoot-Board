@@ -1,29 +1,43 @@
 package com.example.board.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.PagingDto;
 import com.example.board.service.BoardService;
 
 @Controller
 public class BoardController {
 	@Resource(name="com.example.board.service.BoardService")
     BoardService service;
+	private static String S_nowPage = "1";
+	private static String S_cntPerPage = "5";
 	
 	@RequestMapping("/boardMain")
-	public ModelAndView selectAll() {
+	public ModelAndView selectAll(@RequestParam(value="nowPage", required=false)String nowPage, 
+			@RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		ModelAndView mav = new ModelAndView();
+		int total = service.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = S_nowPage;
+			cntPerPage = S_cntPerPage;
+		} else if (nowPage == null) {
+			nowPage = S_nowPage;
+		} else if (cntPerPage == null) { 
+			cntPerPage = S_cntPerPage;
+		}
+		PagingDto dto = new PagingDto(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		mav.setViewName("boardMain");
-		mav.addObject("list", service.selectAll());
+		mav.addObject("paging",dto);
+		mav.addObject("list", service.selectAll(dto));
 		return mav;
 	}
 	
@@ -48,11 +62,24 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/search")
-	public ModelAndView search(HttpServletRequest request) {
+	public ModelAndView search(HttpServletRequest request, @RequestParam(value="nowPage", required=false)String nowPage, 
+			@RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		ModelAndView mav = new ModelAndView();
 		String str = request.getParameter("searchData");
+		int total = service.countSearchBoard(str);
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = S_nowPage;
+			cntPerPage = S_cntPerPage;
+		} else if (nowPage == null) {
+			nowPage = S_nowPage;
+		} else if (cntPerPage == null) { 
+			cntPerPage = S_cntPerPage;
+		}
+		PagingDto dto = new PagingDto(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		dto.setSearchData(str);
 		mav.setViewName("boardMain");
-		mav.addObject("list", service.searchData(str));
+		mav.addObject("paging",dto);
+		mav.addObject("list", service.searchData(dto));
 		return mav;
 	}
 	

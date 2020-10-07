@@ -10,13 +10,22 @@
 	regdate
 </sql>
 
-<select id="selectAll" resultType="com.example.board.dto.BoardDto">
+<select id="selectAll" parameterType="com.example.board.dto.PagingDto" resultType="com.example.board.dto.BoardDto">
 	SELECT 
 		<include refid="boardColumns"/>
 	FROM 
 		BOARD
 	ORDER BY
 		num desc
+	LIMIT
+		#{start}, #{end}
+</select>
+
+<select id="countBoard" resultType="int">
+	SELECT 
+		count(*)
+	FROM 
+		BOARD
 </select>
 
 <insert id="insertData" parameterType="com.example.board.dto.BoardDto">
@@ -62,16 +71,29 @@
 		num=#{num}
 </delete>
 
-<select id="searchData" parameterType="String" resultType="com.example.board.dto.BoardDto">
+<select id="searchData" parameterType="com.example.board.dto.PagingDto" resultType="com.example.board.dto.BoardDto">
 	SELECT
 		<include refid="boardColumns"/>
+	FROM
+		BOARD
+	WHERE
+		title like CONCAT('%',#{searchData},'%')
+	OR
+		content like CONCAT('%',#{searchData},'%')
+	ORDER BY
+		num desc
+	LIMIT
+		#{start}, #{end}
+</select>
+
+<select id="countSearchBoard" parameterType="String" resultType="int">
+	SELECT
+		count(*)
 	FROM
 		BOARD
 	WHERE
 		title like CONCAT('%',#{str},'%')
 	OR
 		content like CONCAT('%',#{str},'%')
-	ORDER BY
-		num desc
 </select>
 </mapper>

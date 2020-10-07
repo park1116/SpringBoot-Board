@@ -27,7 +27,7 @@ table {
 	<h2 align="right"><a style="cursor: pointer;" onclick="logout()"><%=id %></a></h2>
 	<h1 align="center">글 목록</h1>
 	<div align="right">
-		<form action="/search" method="get">
+		<form action="/search" method="post">
 			<input type="text" name="searchData" placeholder="검색어를 입력하세요." />
 			<button type="submit">검색</button>
 		</form>
@@ -53,5 +53,31 @@ table {
 	<div align="left">
 		<button onclick="location.href='/create'" style="padding:0.5%;">글 쓰기</button>
 	</div>
+	<div style="display: block; text-align: center;">		
+		<c:if test="${paging.startPage != 1 }">
+			<a href="/boardMain?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+		</c:if>
+		<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			<c:choose>
+				<c:when test="${p == paging.nowPage }">
+					<b>${p }</b>
+				</c:when>
+				<c:when test="${p != paging.nowPage }">
+					<a href="/boardMain?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+				</c:when>
+			</c:choose>
+		</c:forEach>
+		<c:if test="${paging.endPage != paging.lastPage}">
+			<a href="/boardMain?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+		</c:if>
+	</div>
 </body>
+<script type="text/javascript">
+function logout() {
+	var flag = confirm("로그아웃하시겠습니까?");
+	if(flag){
+		location.href="/";
+	}
+}
+</script>
 </html>

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.example.board.dto.BoardDto;
+import com.example.board.dto.PagingDto;
 import com.example.board.mapper.BoardMapper;
 
 @Service("com.example.board.service.BoardService")
@@ -14,8 +15,8 @@ public class BoardService {
 	@Resource(name="com.example.board.mapper.BoardMapper")
 	BoardMapper mapper;
 	
-	public List<BoardDto> selectAll() {
-		return mapper.selectAll();
+	public List<BoardDto> selectAll(PagingDto dto) {
+		return mapper.selectAll(dto);
 	}
 	
 	public int insertData(BoardDto dto) {
@@ -34,7 +35,15 @@ public class BoardService {
 		return mapper.deleteData(num);
 	}
 	
-	public List<BoardDto> searchData(String str){
-		return mapper.searchData(str);
+	public List<BoardDto> searchData(PagingDto dto){
+		return mapper.searchData(dto);
+	}
+
+	public int countBoard() {
+		return mapper.countBoard();
+	}
+	
+	public int countSearchBoard(String str) {
+		return mapper.countSearchBoard(str);
 	}
 }

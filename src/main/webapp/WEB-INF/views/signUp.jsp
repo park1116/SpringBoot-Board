@@ -57,7 +57,7 @@ function insertData(){
 	}else if($("#idDuplication").val() == "false"){
 		alert("ID중복확인을 해야합니다.");
 	}else{
-		alert("비밀번호와 비밀번호 확인이 다릅니다./n다시한번 확인하세요.");
+		alert("비밀번호와 비밀번호 확인이 다릅니다.");
 	}
 }
 

@@ -18,8 +18,9 @@ public class LoginController {
     LoginService service;
 	
 	@RequestMapping("/")
-	public ModelAndView login() {
+	public ModelAndView login(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		session.removeAttribute("loginId");
 		mav.setViewName("login");
 		return mav;
 	}

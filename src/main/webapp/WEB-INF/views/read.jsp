@@ -72,5 +72,12 @@ function deleteData(num) {
 		})	
 	}
 }
+
+function logout() {
+	var flag = confirm("로그아웃하시겠습니까?");
+	if(flag){
+		location.href="/";
+	}
+}
 </script>
 </html>
